@@ -5,44 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <title>Memory Library</title>
-
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Memory Library" />
 
-  <link rel="manifest" href="manifest.webmanifest" />
-
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
-
   <style>
     html, body {
-      height: 100%;
       margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: -apple-system, system-ui, Segoe UI, Roboto, Arial, sans-serif;
-    }
-    .wrap {
+      padding: 0;
+      width: 100%;
       height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      text-align: center;
+      overflow: hidden;
+      background: #000; /* kills the white */
+    }
+
+    /* iOS viewport quirks: use dynamic viewport units when available */
+    #app {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh; /* newer iOS */
+      border: 0;
+      display: block;
+      background: #000;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    Opening…
-  </div>
-
   <iframe
-  src="https://thunkable.site/w/2XzTvJ4w8DiJV_MJuZv96"
-  style="position:fixed; inset:0; width:100vw; height:100vh; border:0;"
-  allow="autoplay; clipboard-read; clipboard-write; fullscreen"
+    id="app"
+    src="https://thunkable.site/w/2XzTvJ4w8DiJV_MJuZv96"
+    allow="autoplay; clipboard-read; clipboard-write"
   ></iframe>
-  
 </body>
 </html>
