@@ -14,43 +14,42 @@
   <link rel="apple-touch-icon" href="/memory-library-pwa/apple-touch-icon.png">
   
   <style>
- html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #000 !important;
-}
+    :root {
+      --nudge: 8px; /* tweak this */
+    }
 
-/* Fullscreen layer */
-#container {
-  position: fixed;
-  inset: 0;
-  background: #000 !important;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000 !important;
+    }
 
-/*
-  Center iframe on the *visible* area:
-  If iOS/Thunkable is effectively shifting content left/right by safe-area insets,
-  we correct by adding half the inset difference to the 50% anchor.
-*/
-#app {
-  position: absolute;
-  top: 0;
-  height: 100dvh;
+    #container {
+      position: fixed;
+      inset: 0;
+      background: #000 !important;
+    }
 
-  width: min(430px, 100vw);
-  border: 0;
-  display: block;
-  background: #000 !important;
+    #app {
+      position: absolute;
+      top: 0;
+      height: 100dvh;
+      width: min(430px, 100vw);
+      border: 0;
+      background: #000 !important;
 
-  left: calc(
-    50% + (env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)) / 2
-  );
-  transform: translateX(-50%);
-}
-</style>
+      left: calc(
+        50%
+        + (env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)) / 2
+        + var(--nudge)
+      );
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
 </head>
 <body>
   <iframe
